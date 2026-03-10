@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI DevOps Monitoring Platform</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🚀 DevOps Monitoring & AI Platform</h1>
+        <p>Production Monitoring System Powered by AI</p>
+      </header>
+
+      <section class="status-grid">
+        <div class="card" id="app-status">
+          <h3>Application Status</h3>
+          <div class="indicator pulse"></div>
+          <p>System Online</p>
+        </div>
+        <div class="card" id="metrics">
+          <h3>Current Load</h3>
+          <p id="cpu-load">CPU: 42%</p>
+          <div class="progress-bar">
+            <div class="fill" style="width: 42%"></div>
+          </div>
+        </div>
+        <div class="card" id="ai-insights">
+          <h3>AI Insights</h3>
+          <p>Status: No Anomalies Detected</p>
+        </div>
+      </section>
+
+      <section class="logs">
+        <h3>Recent Logs</h3>
+        <pre id="log-display">
+[2026-03-10 12:25:01] INFO: Application started version 1.0.4
+[2026-03-10 12:25:05] INFO: Connecting to monitoring service...
+[2026-03-10 12:25:10] INFO: Successfully linked to AI-Agent-Core.
+            </pre
+        >
+      </section>
+
+      <button id="trigger-stress">Simulate Stress Test</button>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

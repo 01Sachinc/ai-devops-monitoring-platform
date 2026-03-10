@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  web-app:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ../app:/usr/share/nginx/html
+    networks:
+      - monitoring
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ../monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - monitoring
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - monitoring
+
+  ai-monitor:
+    build:
+      context: ..
+      dockerfile: ai-monitor/Dockerfile
+    volumes:
+      - ../ai-monitor:/app
+    depends_on:
+      - web-app
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+    driver: bridge
